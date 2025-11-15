@@ -32,58 +32,103 @@ $products = [];
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<div class="app-background" aria-hidden="true"></div>
+
 <header class="site-header">
-    <h1>PHP OOP Exam – Product List</h1>
-    <div class="student-meta">
-        <p><strong>Student ID:</strong> <?php echo STUDENT_ID; ?></p>
-        <p><strong>Student Name:</strong> <?php echo STUDENT_NAME; ?></p>
+    <div class="site-header__content">
+        <div>
+            <p class="eyebrow">Practical PHP Exam</p>
+            <h1>PHP OOP Exam – Product List</h1>
+            <p class="subtitle">
+                Build abstract classes + interfaces, then render store data in a polished UI.
+            </p>
+        </div>
+        <div class="student-meta glass-panel">
+            <p><strong>Student ID:</strong> <?php echo STUDENT_ID; ?></p>
+            <p><strong>Student Name:</strong> <?php echo STUDENT_NAME; ?></p>
+        </div>
     </div>
 </header>
 
 <main class="site-main">
-    <section class="intro">
-        <p>
-            This page will display products loaded from the database using
-            Object-Oriented Programming in PHP (abstract class + interface).
-            Before you complete the TODO sections, the list will be empty.
-        </p>
+    <section class="hero">
+        <div class="hero__content">
+            <h2>Design the OOP Core, Let the UI Shine</h2>
+            <p>
+                داده‌ها از دیتابیس خوانده می‌شوند و بعد از تکمیل TODOها، کارت‌های محصولات به شکل
+                یک فروشگاه مدرن نمایش داده می‌شوند. روی منطق PHP تمرکز کنید؛ ظاهر از قبل آماده است.
+            </p>
+            <ul class="hero__highlights">
+                <li>Abstract base class + interface</li>
+                <li>Book &amp; Notebook inheritance</li>
+                <li>PDO-powered data grid</li>
+            </ul>
+        </div>
+        <div class="hero__visual">
+            <div class="glow-card">
+                <p class="glow-card__label">Live Preview</p>
+                <p class="glow-card__value">Responsive UI</p>
+                <span class="spark"></span>
+            </div>
+            <div class="gradient-ring"></div>
+        </div>
     </section>
 
-```
-<section class="product-list-section">
-    <h2>Products</h2>
-
-    <?php if (empty($products)): ?>
-        <p class="empty-message">
-            No products yet. Complete the PHP OOP tasks to see the list here.
-        </p>
-    <?php else: ?>
-        <div class="products">
-            <?php foreach ($products as $product): ?>
-                <div class="product-card">
-                    <h3 class="product-title">
-                        <!-- TODO(Task 6): echo the product title using getTitle() -->
-                    </h3>
-                    <p class="product-type">
-                        <!-- TODO(Task 6): echo the product type label using getTypeLabel() -->
-                    </p>
-                    <p class="product-price">
-                        <!-- TODO(Task 6): echo the base price using getPrice() -->
-                    </p>
-                    <p class="product-final-price">
-                        <!-- TODO(Task 6): echo the final price using getFinalPrice() -->
-                    </p>
-                </div>
-            <?php endforeach; ?>
+    <section class="product-list-section">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Task Output</p>
+                <h2>Products</h2>
+            </div>
+            <p class="section-subtitle">
+                پس از ساخت اشیاء و فراخوانی متدها، این لیست به صورت خودکار به‌روز می‌شود.
+            </p>
         </div>
-    <?php endif; ?>
-</section>
-```
 
+        <?php if (empty($products)): ?>
+            <div class="empty-state glass-panel">
+                <h3>Nothing to show… yet!</h3>
+                <p>
+                    No products yet. Complete the PHP OOP tasks to see the list here.
+                </p>
+            </div>
+        <?php else: ?>
+            <div class="products" data-products-grid>
+                <?php foreach ($products as $product): ?>
+                    <article class="product-card" data-product-card>
+                        <header>
+                            <p class="badge">Coming from database</p>
+                            <h3 class="product-title">
+                                <!-- TODO(Task 6): echo the product title using getTitle() -->
+                            </h3>
+                            <p class="product-type">
+                                <!-- TODO(Task 6): echo the product type label using getTypeLabel() -->
+                            </p>
+                        </header>
+                        <dl class="product-prices">
+                            <div>
+                                <dt>Base price</dt>
+                                <dd class="product-price">
+                                    <!-- TODO(Task 6): echo the base price using getPrice() -->
+                                </dd>
+                            </div>
+                            <div>
+                                <dt>Final price</dt>
+                                <dd class="product-final-price">
+                                    <!-- TODO(Task 6): echo the final price using getFinalPrice() -->
+                                </dd>
+                            </div>
+                        </dl>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </section>
 </main>
 
 <footer class="site-footer">
     <p>Secret phrase: <?php echo STUDENT_SECRET_PHRASE; ?></p>
 </footer>
+<script src="assets/app.js"></script>
 </body>
 </html>

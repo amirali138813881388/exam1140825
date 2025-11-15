@@ -29,7 +29,7 @@
 2. دیتابیس MySQL به نام دلخواه (مثلاً `oop_exam`) بسازید.
 3. فایل `db/init.sql` را اجرا کنید تا جدول `products` و داده اولیه ایجاد شود.
 4. مشخصات اتصال در `db/db.php` (`$dsn`, `$user`, `$pass`) را با سیستم خود تنظیم کنید.
-5. سرور PHP را روی `public/index.php` اجرا کنید (مثلاً `http://localhost/php-oop-exam-products/public/index.php`).
+5. سرور PHP را روی `public/index.php` اجرا کنید (مثلاً `http://localhost/<project-folder>/public/index.php` و اگر سرور داخلی PHP را مستقیم اجرا می‌کنید، از دستور `php -S localhost:8000 -t public` استفاده کنید).
 
 صفحه ابتدا فقط پیام خالی نشان می‌دهد؛ پس از تکمیل TODOها کارت محصولات نمایش داده می‌شود.
 

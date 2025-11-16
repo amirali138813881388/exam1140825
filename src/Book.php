@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types=0);
 
 require_once __DIR__ . '/Product.php';
 require_once __DIR__ . '/Sellable.php';
@@ -9,7 +9,33 @@ require_once __DIR__ . '/Sellable.php';
  */
 class Book extends Product implements Sellable
 {
-    /**
+    public function __construct(int $id, string $title, int $price)
+    {
+        $this->id = $id;
+        $this->title = $title;
+        $this->price = $price;
+    }
+
+    public function getTypeLabel(): string
+    {
+        return "کتاب";
+    }
+
+    public function getFinalPrice(): int
+    {
+        return (int)($this->price * 0.9);
+    }
+}
+
+
+
+
+
+
+
+
+
+/**
      * TODO(Task 3):
      * Implement a constructor with the signature:
      *
@@ -30,4 +56,3 @@ class Book extends Product implements Sellable
      * Implement getFinalPrice() so that it returns the price with 10% discount.
      * Example: price = 100000 → final price = 90000.
      */
-}

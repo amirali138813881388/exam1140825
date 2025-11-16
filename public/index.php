@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types=0);
 
 require_once __DIR__ . '/../config/student.php';
 require_once __DIR__ . '/../db/db.php';
@@ -15,6 +15,16 @@ require_once __DIR__ . '/../src/Notebook.php';
  */
 
 $products = [];
+foreach ($rows as $row) {
+    if ($row['type']==='book'){
+        $product = new Book($row['id'], $row['title'], $row['price']);
+    }elseif ($row['type']==='notebook'){
+        $product = new Notebook($row['id'], $row['title'], $row['price']);
+    }else{
+        continue;
+    }
+    $products[] = $product;
+}
 
 // TODO(Task 5):
 // Loop over $rows (fetched from the database) and create the correct
@@ -100,9 +110,11 @@ $products = [];
                             <p class="badge">خوانده‌شده از دیتابیس</p>
                             <h3 class="product-title">
                                 <!-- TODO(Task 6): echo the product title using getTitle() -->
+                                 <?php echo $product->getTitle(); ?>   
                             </h3>
                             <p class="product-type">
                                 <!-- TODO(Task 6): echo the product type label using getTypeLabel() -->
+                                <?php echo $product->getTypeLabel(); ?>
                             </p>
                         </header>
                         <dl class="product-prices">
@@ -110,12 +122,14 @@ $products = [];
                                 <dt>قیمت پایه</dt>
                                 <dd class="product-price">
                                     <!-- TODO(Task 6): echo the base price using getPrice() -->
+                                    <?php echo $product->getPrice(); ?>
                                 </dd>
                             </div>
                             <div>
                                 <dt>قیمت نهایی</dt>
                                 <dd class="product-final-price">
                                     <!-- TODO(Task 6): echo the final price using getFinalPrice() -->
+                                    <?php echo $product->getFinalPrice(); ?>
                                 </dd>
                             </div>
                         </dl>
